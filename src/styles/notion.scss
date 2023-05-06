@@ -1,0 +1,437 @@
+:root {
+  --color-gray: #787774;
+  --color-brown: #9f6b53;
+  --color-orange: #da730f;
+  --color-yellow: #cb912f;
+  --color-green: #458362;
+  --color-blue: #4186ae;
+  --color-purple: #9065b0;
+  --color-pink: #c14d8a;
+  --color-red: #d44c47;
+
+  --background-gray: #f1f1ef;
+  --background-brown: #f4eeee;
+  --background-orange: #fbecdd;
+  --background-yellow: #fcf3db;
+  --background-green: #edf3ec;
+  --background-blue: #e7f3f8;
+  --background-purple: #f7f3f8;
+  --background-pink: #fbf2f5;
+  --background-red: #fdebec;
+
+  --divider-color: rgba(55, 53, 47, 0.16);
+  --color-code-bg: #efefef;
+  --code-padding: 1.4rem;
+
+  --checkbox-checked-background: #2eaadc;
+  --checkbox-checked-color: #ffffff;
+  --checkbox-checked-text: var(--color-gray);
+
+  --calout-radius: @apply rounded-md;
+  --callout-background-default: @apply bg-white;
+}
+
+* {
+  @apply text-base;
+}
+
+.duper-block {
+  @apply block my-1;
+}
+
+.duper-screen {
+  @apply relative mx-auto w-full px-4 sm:max-w-lg md:max-w-4xl lg:max-w-5xl;
+  @apply transition-all duration-200;
+}
+
+.duper-page {
+  @extend .duper-screen;
+  @apply border border-red-400;
+}
+
+.duper-image {
+  position: relative;
+  display: block;
+}
+
+.duper-header {
+  @apply text-3xl;
+}
+
+.duper-sub-header {
+  @apply text-2xl;
+}
+
+.duper-sub-sub-header {
+  @apply text-xl;
+}
+.duper-text {
+  min-height: calc(1rem + 10px);
+  @apply relative;
+}
+
+.duper-text-inner {
+  padding: 3px 2px;
+  margin: 0;
+}
+
+.duper-semantic-string {
+  line-height: 1.5rem;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.duper-pageLink {
+  @apply text-slate-600 hover:opacity-100 hover:underline hover:bg-slate-100 block w-full;
+
+  .duper-pageLink-content {
+    @apply py-1 opacity-80 w-full my-1 flex items-center gap-2;
+  }
+
+  .duper-pageLink-icon {
+    @apply relative overflow-hidden w-4;
+
+    img,
+    svg {
+      @apply w-full;
+    }
+  }
+
+  .duper-pageLink-inner {
+    @extend .duper-semantic-string;
+    @apply border-b border-b-gray-200;
+  }
+}
+
+.duper-button {
+  @apply btn;
+
+  &.primary {
+    @apply btn-primary;
+  }
+
+  &.secondary {
+    @apply btn-secondary;
+  }
+
+  &.ghost {
+    @apply btn-ghost;
+  }
+}
+
+.duper-callout {
+  @apply relative my-2 p-2 border flex items-start;
+  border-radius: var(--callout-radius);
+  background: var(--callout-background-default);
+
+  .duper-callout-icon {
+    @apply relative overflow-hidden mr-1;
+    min-width: 1.5rem;
+    width: 1.8rem;
+    font-size: 1.3rem;
+
+    img {
+      width: 1.5rem;
+    }
+  }
+
+  .duper-callout-content {
+    @apply relative;
+  }
+}
+
+.duper-heading {
+  @apply font-semibold;
+
+  &1 {
+    @apply text-3xl;
+  }
+
+  &2 {
+    @apply text-2xl;
+  }
+
+  &3 {
+    @apply text-xl;
+  }
+}
+
+.transition-basic {
+  @apply transition-all duration-200;
+}
+
+.duper-columnList {
+  @apply relative flex flex-col;
+  @apply sm:flex-row;
+  @extend .transition-basic;
+
+  .duper-column {
+    @apply relative;
+    width: 100% !important;
+    @extend .transition-basic;
+
+    @media (min-width: 640px) {
+      @apply w-auto;
+      margin-inline-start: var(--spacing-column);
+    }
+
+    &:nth-child(1) {
+      margin-inline-start: 0;
+    }
+  }
+}
+
+.duper-strong {
+  @apply font-bold;
+}
+
+.duper-italic {
+  @apply italic;
+}
+
+.duper-underline {
+  @apply border-b;
+  border-color: inherit !important;
+}
+
+.duper-divider {
+  @apply my-1 h-3 flex items-center justify-center;
+
+  .duper-divider-inside {
+    @apply w-full h-[1px];
+    border-bottom: 1px solid var(--divider-color);
+  }
+}
+
+.duper-todo-list {
+  @apply relative my-1;
+
+  .duper-todo-list-inner {
+    @apply flex gap-1 text-sm items-center;
+  }
+
+  .duper-todo-list-icon {
+    width: 1rem;
+  }
+
+  &.checked {
+    .duper-todo-list-icon {
+      padding: 2px;
+      background: var(--checkbox-checked-background);
+      fill: var(--checkbox-checked-color);
+    }
+
+    .duper-todo-list-text {
+      color: var(--checkbox-checked-text);
+    }
+  }
+}
+
+.duper-bullet-list {
+  @apply relative my-1;
+
+  .duper-bullet-list-inner {
+    @apply text-sm;
+  }
+}
+
+.duper-quote {
+  @apply block w-full relative text-xl border-l-2 border-black bg-white my-4 px-3 py-1;
+
+  * {
+    @apply text-xl;
+  }
+
+  &.quote-large {
+    @apply text-2xl;
+
+    * {
+      @apply text-2xl;
+    }
+  }
+}
+
+.duper-embed {
+  @apply my-4 max-w-full;
+
+  iframe {
+    @apply max-w-full;
+  }
+}
+
+.duper-code {
+  font-family: Consolas, Monaco, Andale Mono, Ubuntu Mono, monospace;
+  text-align: left;
+  word-spacing: normal;
+  word-break: normal;
+  -moz-tab-size: 4;
+  tab-size: 4;
+  -webkit-hyphens: none;
+  hyphens: none;
+
+  color: #000;
+  background-color: var(--color-code-bg);
+  font-size: 0.8rem;
+  line-height: 1.5rem;
+  white-space: pre;
+  overflow-wrap: normal;
+  margin: 10px 0;
+  direction: ltr;
+  overflow: auto;
+  padding: var(--code-padding);
+  border-radius: 8px;
+}
+
+.duper-bookmark {
+  @apply relative overflow-hidden hover:bg-transparent;
+  @apply p-2 border;
+  flex: 4 1 180px;
+  text-decoration: none !important;
+
+  * {
+    text-decoration: none !important;
+  }
+
+  .duper-bookmark-title {
+    @apply font-medium mb-1;
+  }
+
+  .duper-bookmark-desc {
+    @apply text-sm;
+  }
+
+  .duper-bookmark-link {
+    @apply flex items-center gap-2 text-xs mt-5;
+  }
+
+  .duper-bookmark-icon {
+    @apply w-4;
+
+    img {
+      @apply w-full;
+    }
+  }
+
+  .duper-bookmark-linkName {
+    @apply text-xs;
+  }
+}
+
+// COLORING
+
+.duper-gray {
+  color: var(--color-gray);
+}
+
+.duper-blue {
+  color: var(--color-blue);
+}
+
+.duper-brown {
+  color: var(--color-brown);
+}
+
+.duper-orange {
+  color: var(--color-orange);
+}
+
+.duper-yellow {
+  color: var(--color-yellow);
+}
+
+.duper-teal {
+  color: var(--color-green);
+}
+
+.duper-purple {
+  color: var(--color-purple);
+}
+
+.duper-pink {
+  color: var(--color-pink);
+}
+
+.duper-red {
+  color: var(--color-red);
+}
+
+.duper-gray_background {
+  background-color: var(--background-gray);
+
+  &-callout {
+    background-color: var(--background-gray);
+    border-color: var(--color-gray);
+  }
+}
+
+.duper-blue_background {
+  background-color: var(--background-blue);
+
+  &-callout {
+    background-color: var(--background-blue);
+    border-color: var(--color-blue);
+  }
+}
+
+.duper-brown_background {
+  background-color: var(--background-brown);
+
+  &-callout {
+    background-color: var(--background-brown);
+    border-color: var(--color-brown);
+  }
+}
+
+.duper-orange_background {
+  background-color: var(--background-orange);
+
+  &-callout {
+    background-color: var(--background-orange);
+    border-color: var(--color-orange);
+  }
+}
+
+.duper-yellow_background {
+  background-color: var(--background-yellow);
+
+  &-callout {
+    background-color: var(--background-yellow);
+    border-color: var(--color-yellow);
+  }
+}
+
+.duper-teal_background {
+  background-color: var(--background-green);
+
+  &-callout {
+    background-color: var(--background-green);
+    border-color: var(--color-green);
+  }
+}
+
+.duper-purple_background {
+  background-color: var(--background-purple);
+
+  &-callout {
+    background-color: var(--background-purple);
+    border-color: var(--color-purple);
+  }
+}
+
+.duper-pink_background {
+  background-color: var(--background-pink);
+
+  &-callout {
+    background-color: var(--background-pink);
+    border-color: var(--color-pink);
+  }
+}
+
+.duper-red_background {
+  background-color: var(--background-red);
+
+  &-callout {
+    background-color: var(--background-red);
+    border-color: var(--color-red);
+  }
+}
