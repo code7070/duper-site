@@ -58,17 +58,16 @@ export default async function middleware(req: NextRequest) {
       return response;
     } else url.pathname = `/_sites/404`;
 
-    // if (process.env.NODE_ENV === "production")
-    // console.log("SUPAWARE: ", {
-    //   middleware: {
-    //     mydomain,
-    //     publicDomain,
-    //     currentUrl,
-    //     currentHost,
-    //     url,
-    //   },
-    //   data,
-    // });
+    console.log("SUPAWARE: ", {
+      middleware: {
+        mydomain,
+        publicDomain,
+        currentUrl,
+        currentHost,
+        url,
+      },
+      data,
+    });
   }
   return NextResponse.rewrite(url);
 }
