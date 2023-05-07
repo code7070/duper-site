@@ -49,7 +49,7 @@ export default function NotionFile({
       className="duper-file"
       id={`block-${id}`}
     >
-      <div className="flex gap-2">
+      <div className="duper-fileinfo">
         <div className="w-4">{fileIcon}</div>
         <div title={title} className="duper-filename">
           {title}

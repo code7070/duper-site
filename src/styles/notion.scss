@@ -11,6 +11,7 @@
 
   --border-thickness: 1px;
   --basic-radius: 4px;
+  --basic-margin: 0.5rem;
 
   --color-gray: #787774;
   --color-brown: #9f6b53;
@@ -45,8 +46,7 @@
   --callout-radius: var(--basic-radius);
   --callout-background-default: @apply bg-white;
   --callout-padding: calc(var(--padding-layout) + 0.4rem);
-  --callout-margin: calc(var(--padding-layout) + 0.4rem)
-    calc(var(--padding-layout));
+  --callout-margin: calc(var(--basic-margin) + 0.4rem) calc(var(--basic-margin));
 
   --border-quote: calc(var(--border-thickness) + 2px) solid currentcolor;
   --font-quote: 1.2rem;
@@ -313,6 +313,11 @@
 }
 
 .duper-bookmark {
+  @apply relative;
+  margin: var(--basic-margin) 0;
+}
+
+.duper-bookmark-content {
   @apply relative overflow-hidden border;
   padding: var(--bookmark-padding);
   border-radius: var(--basic-radius);
@@ -355,6 +360,10 @@
   background: transparent;
   margin: var(--padding-layout) 0;
 
+  .duper-fileinfo {
+    @apply flex gap-2 items-center;
+  }
+
   .duper-filename {
     @apply relative mr-1 line-clamp-1;
   }
@@ -367,6 +376,21 @@
   &:hover {
     @apply bg-slate-100;
   }
+}
+
+.duper-image {
+  @apply relative;
+  margin: var(--basic-margin) 0;
+
+  img {
+    @apply w-full block;
+  }
+}
+
+.duper-caption {
+  @apply relative text-sm;
+  padding: 6px 2px;
+  color: var(--color-gray);
 }
 
 // COLORING

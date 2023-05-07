@@ -10,8 +10,17 @@ export default function NotionImage({
 }) {
   const value = block.value;
   const id = undashit(`${value.id}`);
-  const title = `${value.properties?.title}`;
+  const properties = value.properties;
+  const title = `${properties?.title}`;
+  const caption = `${properties?.caption}`;
+  const format = value.format;
   const src = signedUrls;
-  // return <div>{type}</div>;
-  return <img alt={title} id={`block-${id}`} src={src} />;
+  const srcdisplay = `${format?.display_source}`;
+
+  return (
+    <div className="duper-image" id={`block-${id}`}>
+      <img alt={title} src={src || srcdisplay} />
+      <figcaption className="duper-caption">{caption}</figcaption>
+    </div>
+  );
 }
