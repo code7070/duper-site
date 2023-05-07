@@ -1,3 +1,4 @@
+import { undashit } from "@/utils/helpers";
 import { block } from "./duper-renderer";
 
 export default function NotionImage({
@@ -8,7 +9,7 @@ export default function NotionImage({
   signedUrls: any;
 }) {
   const value = block.value;
-  const id = `${value.id}`;
+  const id = undashit(`${value.id}`);
   const title = `${value.properties?.title}`;
   const src = signedUrls;
   // return <div>{type}</div>;

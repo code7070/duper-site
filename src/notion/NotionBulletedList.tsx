@@ -1,3 +1,4 @@
+import { undashit } from "@/utils/helpers";
 import { block } from "./duper-renderer";
 
 export default function NotionBulletedList({
@@ -8,9 +9,8 @@ export default function NotionBulletedList({
   list?: any;
 }) {
   const value = block && block.value;
-  const type = value?.type;
   const title = value?.properties?.title;
-  const id = value?.id;
+  const id = undashit(`${value?.id}`);
 
   return (
     <div className="duper-bullet-list" id={`block-${id}`}>

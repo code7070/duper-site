@@ -1,4 +1,17 @@
 :root {
+  --padding-layout: 0.5rem;
+
+  --content-padding-left: calc(env(safe-area-inset-left) + 90px);
+  --content-padding-right: calc(env(safe-area-inset-right) + 90px);
+
+  --content-padding-left-mobile: calc(env(safe-area-inset-left) + 20px);
+  --content-padding-right-mobile: calc(env(safe-area-inset-right) + 20px);
+
+  --column-spacing: 40px;
+
+  --border-thickness: 1px;
+  --basic-radius: 4px;
+
   --color-gray: #787774;
   --color-brown: #9f6b53;
   --color-orange: #da730f;
@@ -23,17 +36,26 @@
   --color-code-bg: #efefef;
   --code-padding: 1.4rem;
 
+  --bookmark-padding: calc(var(--padding-layout) + 0.4rem);
+
   --checkbox-checked-background: #2eaadc;
   --checkbox-checked-color: #ffffff;
   --checkbox-checked-text: var(--color-gray);
 
-  --calout-radius: @apply rounded-md;
+  --callout-radius: var(--basic-radius);
   --callout-background-default: @apply bg-white;
+  --callout-padding: calc(var(--padding-layout) + 0.4rem);
+  --callout-margin: calc(var(--padding-layout) + 0.4rem)
+    calc(var(--padding-layout));
+
+  --border-quote: calc(var(--border-thickness) + 2px) solid currentcolor;
+  --font-quote: 1.2rem;
+  --font-quote-large: 1.5rem;
 }
 
-* {
-  @apply text-base;
-}
+// * {
+//   @apply text-base;
+// }
 
 .duper-block {
   @apply block my-1;
@@ -45,8 +67,17 @@
 }
 
 .duper-page {
-  @extend .duper-screen;
-  @apply border border-red-400;
+  @apply relative mx-auto;
+
+  padding-left: var(--content-padding-left-mobile);
+  padding-right: var(--content-padding-right-mobile);
+
+  @media (min-width: 640px) {
+    padding-left: var(--content-padding-left);
+    padding-right: var(--content-padding-right);
+  }
+
+  // @apply border border-red-400;
 }
 
 .duper-image {
@@ -66,7 +97,7 @@
   @apply text-xl;
 }
 .duper-text {
-  min-height: calc(1rem + 10px);
+  min-height: calc(1.5rem + 10px);
   @apply relative;
 }
 
@@ -120,9 +151,11 @@
 }
 
 .duper-callout {
-  @apply relative my-2 p-2 border flex items-start;
+  @apply relative border flex items-start;
   border-radius: var(--callout-radius);
   background: var(--callout-background-default);
+  padding: var(--callout-padding);
+  margin: var(--callout-margin);
 
   .duper-callout-icon {
     @apply relative overflow-hidden mr-1;
@@ -172,7 +205,7 @@
 
     @media (min-width: 640px) {
       @apply w-auto;
-      margin-inline-start: var(--spacing-column);
+      margin-inline-start: var(--column-spacing);
     }
 
     &:nth-child(1) {
@@ -236,18 +269,15 @@
 }
 
 .duper-quote {
-  @apply block w-full relative text-xl border-l-2 border-black bg-white my-4 px-3 py-1;
+  // @apply block w-full relative text-xl bg-white px-3 py-1;
+  display: block;
+  margin: 1rem 0;
+  padding: 0.1rem 0.9rem;
+  border-left: var(--border-quote);
+  font-size: var(--font-quote);
 
-  * {
-    @apply text-xl;
-  }
-
-  &.quote-large {
-    @apply text-2xl;
-
-    * {
-      @apply text-2xl;
-    }
+  &.duper-quote-large {
+    font-size: var(--font-quote-large);
   }
 }
 
@@ -283,8 +313,9 @@
 }
 
 .duper-bookmark {
-  @apply relative overflow-hidden hover:bg-transparent;
-  @apply p-2 border;
+  @apply relative overflow-hidden border;
+  padding: var(--bookmark-padding);
+  border-radius: var(--basic-radius);
   flex: 4 1 180px;
   text-decoration: none !important;
 
@@ -314,6 +345,27 @@
 
   .duper-bookmark-linkName {
     @apply text-xs;
+  }
+}
+
+.duper-file {
+  @apply relative flex justify-between items-center w-full;
+  border-radius: var(--basic-radius);
+  padding: var(--padding-layout);
+  background: transparent;
+  margin: var(--padding-layout) 0;
+
+  .duper-filename {
+    @apply relative mr-1 line-clamp-1;
+  }
+
+  .duper-filesize {
+    font-size: 0.7rem;
+    opacity: 0.5;
+  }
+
+  &:hover {
+    @apply bg-slate-100;
   }
 }
 

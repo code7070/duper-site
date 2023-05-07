@@ -1,9 +1,10 @@
+import { undashit } from "@/utils/helpers";
 import { block } from "./duper-renderer";
 
 export default function NotionCode({ block }: { block: block }) {
   const value = block.value;
   const properties = value.properties;
-  const id = value.id;
+  const id = undashit(`${value.id}`);
   const lang = properties?.language;
 
   return (

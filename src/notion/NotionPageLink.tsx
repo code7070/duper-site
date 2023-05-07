@@ -2,6 +2,7 @@ import Link from "next/link";
 import { block } from "./duper-renderer";
 import NotionPageIcon from "@/components/Icons/NotionPageIcon";
 import LinkIndicator from "@/components/Icons/LinkIndicator";
+import { undashit } from "@/utils/helpers";
 
 export default function NotionPageLink({
   block,
@@ -20,7 +21,7 @@ export default function NotionPageLink({
   }
 
   const value = targetBlock.value;
-  const id = value.id;
+  const id = undashit(`${value.id}`);
   const title = value.properties?.title;
   const icon = value.format?.page_icon;
 

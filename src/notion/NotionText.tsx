@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { block } from "./duper-renderer";
+import { undashit } from "@/utils/helpers";
 
 export const titleMapper = ({ title }: { title: any }) =>
   title?.map((t: any, index: number) => {
@@ -39,7 +40,7 @@ export const titleMapper = ({ title }: { title: any }) =>
 export default function NotionText({ block }: { block: block }) {
   const value = block.value;
   const title = value.properties?.title;
-  const id = value.id;
+  const id = undashit(`${value.id}`);
 
   let blockColor = value?.format?.block_color || "";
 

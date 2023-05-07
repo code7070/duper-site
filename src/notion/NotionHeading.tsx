@@ -1,10 +1,11 @@
+import { undashit } from "@/utils/helpers";
 import { block } from "./duper-renderer";
 
 export default function NotionHeading({ block }: { block: block }) {
   const value = block.value;
   const type = value.type;
   const title = value.properties?.title?.[0] || type;
-  const id = value.id;
+  const id = undashit(`${value.id}`);
 
   if (type === "sub_header")
     return (

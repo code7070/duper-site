@@ -1,0 +1,91 @@
+:root {
+  --padding-layout: 0.6rem;
+  --border-radii-layout: 5px;
+  --border-thickness-layout: 1px;
+  --border-type-layout: solid;
+  --border-layout: var(--border-thickness-layout) var(--border-type-layout)
+    var(--color-border-default);
+  --layout-max-width: 900px;
+  --column-spacing: 46px;
+  --page-display: unset;
+  --padding-right: calc(env(safe-area-inset-right) + 96px);
+  --padding-left: calc(env(safe-area-inset-left) + 96px);
+  --padding-right-mobile: calc(env(safe-area-inset-right) + 24px);
+  --padding-left-mobile: calc(env(safe-area-inset-left) + 24px);
+  --header-cover-height: 30vh;
+  --header-title-align: left;
+  --header-icon-align: -112px auto auto auto;
+  --header-display: block;
+  --collection-header-border: var(--border-layout);
+  --collection-table-cell-padding: calc(var(--padding-layout) - 0.3rem)
+    calc(var(--padding-layout) - 0.1rem);
+  --collection-list-item-padding: calc(var(--padding-layout) - 0.5rem);
+  --collection-list-item-border-radii: calc(var(--border-radii-layout) - 1px);
+  --collection-card-padding: 0px;
+  --collection-card-title-padding: 0px;
+  --collection-card-content-padding: var(--padding-layout);
+  --collection-card-border-radii: var(--border-radii-layout);
+  --collection-card-gap: 10px;
+  --collection-card-shadow: rgba(15, 15, 15, 0.1) 0px 0px 0px 1px,
+    rgba(15, 15, 15, 0.1) 0px 2px 4px;
+  --collection-card-title-size: 0.875rem;
+  --collection-card-cover-height-small: 128px;
+  --collection-card-cover-size-small: 172px;
+  --collection-card-cover-height-medium: 200px;
+  --collection-card-cover-size-medium: 260px;
+  --collection-card-cover-height-large: 200px;
+  --collection-card-cover-size-large: 320px;
+  --collection-card-icon-display: inline-flex;
+  --callout-padding: calc(var(--padding-layout) + 0.4rem)
+    calc(var(--padding-layout) + 0.4rem) calc(var(--padding-layout) + 0.4rem)
+    calc(var(--padding-layout) + 0.1em);
+  --callout-border-radii: calc(var(--border-radii-layout) - 2px);
+  --callout-border: var(--border-layout);
+  --callout-icon-display: block;
+  --callout-shadow: none;
+  --file-border-radii: calc(var(--border-radii-layout) - 2px);
+  --equation-border-radii: calc(var(--border-radii-layout) - 2px);
+  --divider-border: var(--border-layout);
+  --quote-border: calc(var(--border-thickness-layout) + 2px) solid currentcolor;
+  --code-padding: calc(var(--padding-layout) + 1.4rem);
+  --code-border-radii: var(--border-radii-layout);
+  --tweet-padding: calc(var(--padding-layout) + 0.65rem)
+    calc(var(--padding-layout) + 0.65rem) calc(var(--padding-layout) + 0.05rem)
+    calc(var(--padding-layout) + 0.65rem);
+  --tweet-border-radii: var(--border-radii-layout);
+  --tweet-border: var(--border-layout);
+  --bookmark-padding: calc(var(--padding-layout) + 0.15rem) 0px
+    calc(var(--padding-layout) + 0.025rem)
+    calc(var(--padding-layout) + 0.275rem);
+  --bookmark-border-radii: var(--border-radii-layout);
+  --bookmark-border: var(--border-layout);
+  --bookmark-image-border-radii: 0px calc(var(--border-radii-layout) - 1px)
+    calc(var(--border-radii-layout) - 1px) 0px;
+  --embed-border-radii: calc(var(--border-radii-layout) - 5px);
+  --image-border-radii: calc(var(--border-radii-layout) - 5px);
+  --title-size: 2.5rem;
+  --quote-size: 1.2rem;
+  --quote-size-large: 1.4rem;
+  --heading-size: 1rem;
+  --primary-font: Inter, Inter-fallback, Helvetica, Apple Color Emoji,
+    Segoe UI Emoji, NotoColorEmoji, Noto Color Emoji, Segoe UI Symbol,
+    Android Emoji, EmojiSymbols, -apple-system, BlinkMacSystemFont, Segoe UI,
+    Roboto, Helvetica Neue, Noto Sans, sans-serif;
+  --secondary-font: Inter, Inter-fallback, Helvetica, Apple Color Emoji,
+    Segoe UI Emoji, NotoColorEmoji, Noto Color Emoji, Segoe UI Symbol,
+    Android Emoji, EmojiSymbols, -apple-system, BlinkMacSystemFont, Segoe UI,
+    Roboto, Helvetica Neue, Noto Sans, sans-serif;
+  --text-weight: 400;
+  --heading-weight: 600;
+  --heading1-size: calc(var(--heading-size) * 1.875);
+  --heading2-size: calc(var(--heading-size) * 1.5);
+  --heading3-size: calc(var(--heading-size) * 1.25);
+  --heading4-size: calc(var(--heading-size) * 1);
+  --heading5-size: calc(var(--heading-size) * 0.8125);
+  --scrollbar-width: 15px;
+  --navbar-height: 56px;
+  --navbar-shadow: none;
+  --navbar-button-border-radii: 50px;
+  --navbar-list-width-single-column: 360px;
+  --navbar-list-width: 660px;
+}

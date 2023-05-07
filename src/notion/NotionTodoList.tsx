@@ -1,13 +1,13 @@
 import Checkbox from "@/components/Icons/CheckBox";
 import { block } from "./duper-renderer";
 import CheckedBox from "@/components/Icons/CheckedBox";
+import { undashit } from "@/utils/helpers";
 
 export default function NotionTodoList({ block }: { block: block }) {
   const value = block.value;
-  const type = value.type;
   const title = value.properties?.title;
   const checked = value.properties?.checked;
-  const id = value.id;
+  const id = undashit(`${value.id}`);
 
   const isChecked = checked && checked.length > 0 && checked[0][0] === "Yes";
   const checkedStatus = isChecked ? "checked" : "unchecked";

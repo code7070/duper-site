@@ -1,6 +1,7 @@
 import NotionPageIcon from "@/components/Icons/NotionPageIcon";
 import { titleMapper } from "./NotionText";
 import { block } from "./duper-renderer";
+import { undashit } from "@/utils/helpers";
 
 export default function NotionCallout({
   block,
@@ -14,7 +15,7 @@ export default function NotionCallout({
   const title = value.properties?.title;
   const blockColor = format?.block_color;
   const calloutClassName = `duper-callout duper-${blockColor}-callout`;
-  const id = value.id;
+  const id = undashit(`${value.id}`);
   const icon = value.format?.page_icon;
   const content = value.content;
 
@@ -35,11 +36,9 @@ export default function NotionCallout({
   else if (icon) iconViews = icon;
 
   return (
-    <div className="duper-block" id={`block-${id}`}>
-      <div className={calloutClassName}>
-        <div className="duper-callout-icon">{iconViews}</div>
-        <div className="duper-callout-content">{views}</div>
-      </div>
+    <div className={calloutClassName} id={`block-${id}`}>
+      <div className="duper-callout-icon">{iconViews}</div>
+      <div className="duper-callout-content">{views}</div>
     </div>
   );
 }

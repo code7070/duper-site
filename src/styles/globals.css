@@ -20,11 +20,3 @@ body {
 .wrapper {
   @apply mx-auto w-full lg:max-w-4xl md:max-w-3xl;
 }
-
-.duper-logo {
-  @apply font-bold text-7xl text-primary;
-}
-
-.duper-logo * {
-  @apply font-bold text-7xl;
-}

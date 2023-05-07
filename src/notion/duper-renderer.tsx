@@ -14,6 +14,7 @@ import NotionEmbed from "./NotionEmbed";
 import NotionCode from "./NotionCode";
 import { useEffect, useState } from "react";
 import NotionBookmark from "./NotionBookmark";
+import NotionFile from "./NotionFile";
 
 type notionMap = {
   block?: object;
@@ -40,6 +41,7 @@ export type block = {
       language?: Array<any>;
       link?: Array<any>;
       description?: Array<any>;
+      size?: Array<any>;
     };
     format?: {
       column_ratio?: number;
@@ -107,6 +109,10 @@ export const BlockRenderer = ({
     else if (type === "embed") return <NotionEmbed block={block} />;
     else if (type === "code") return <NotionCode block={block} />;
     else if (type === "bookmark") return <NotionBookmark block={block} />;
+    else if (type === "file")
+      return (
+        <NotionFile block={block} signedUrls={signedUrls[`${value.id}`]} />
+      );
     else if (block)
       return (
         <div className="duper-block" id={`block-${id}`}>
@@ -141,6 +147,7 @@ export default function DuperRenderer({
   }, []);
 
   console.log("RENDERINGS--------------------------------");
+  console.log(notionMap);
   const blocks = Object.values(notionMap?.block || {});
   const signedUrls = notionMap?.signed_urls || {};
   const parent: block = blocks[0];
@@ -148,7 +155,7 @@ export default function DuperRenderer({
 
   return (
     <>
-      <HeaderNotionSite dataSite={dataSite} />
+      {/* <HeaderNotionSite dataSite={dataSite} /> */}
       <section className="duper-page">
         innerWidth: {width}px
         <BlockRenderer block={parent} blocks={blocks} signedUrls={signedUrls} />
