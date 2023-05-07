@@ -8,17 +8,12 @@ export default function NotionVideo({ block }: { block: block }) {
   const id = undashit(`${value.id}`);
   const display = format?.display_source;
   const source = properties?.source;
+  const ratio = format?.block_aspect_ratio;
 
   return (
-    <div className="duper-block" id={`block-${id}`}>
-      <div className="duper-embed">
-        {source && (
-          <iframe
-            style={{ aspectRatio: `${format?.block_aspect_ratio}` }}
-            src={display}
-          />
-        )}
-      </div>
+    <div className="duper-embed" id={`block-${id}`}>
+      {source && <iframe style={{ aspectRatio: `1/${ratio}` }} src={display} />}
+      <figcaption></figcaption>
     </div>
   );
 }

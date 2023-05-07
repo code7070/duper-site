@@ -146,8 +146,6 @@ export default function DuperRenderer({
     window.addEventListener("resize", () => setWidth(window.innerWidth));
   }, []);
 
-  console.log("RENDERINGS--------------------------------");
-  console.log(notionMap);
   const blocks = Object.values(notionMap?.block || {});
   const signedUrls = notionMap?.signed_urls || {};
   const parent: block = blocks[0];
