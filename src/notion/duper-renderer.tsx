@@ -15,6 +15,7 @@ import NotionCode from "./NotionCode";
 import { useEffect, useState } from "react";
 import NotionBookmark from "./NotionBookmark";
 import NotionFile from "./NotionFile";
+import NotionToggle from "./NotionToggle";
 
 type notionMap = {
   block?: object;
@@ -54,6 +55,7 @@ export type block = {
       block_height?: string;
       block_aspect_ratio?: number;
       bookmark_icon?: string;
+      toggleable?: boolean;
     };
     [key: string]: any;
   };
@@ -90,7 +92,8 @@ export const BlockRenderer = ({
       return <NotionColumn block={block} BlockMapper={BlockMapper} />;
     else if (type === "callout")
       return <NotionCallout block={block} BlockMapper={BlockMapper} />;
-    else if (type?.includes("header")) return <NotionHeading block={block} />;
+    else if (type?.includes("header"))
+      return <NotionHeading block={block} BlockMapper={BlockMapper} />;
     else if (type === "text") return <NotionText block={block} />;
     else if (type === "image")
       return (
@@ -113,6 +116,8 @@ export const BlockRenderer = ({
       return (
         <NotionFile block={block} signedUrls={signedUrls[`${value.id}`]} />
       );
+    else if (type === "toggle")
+      return <NotionToggle block={block} BlockMapper={BlockMapper} />;
     else if (block)
       return (
         <div className="duper-block" id={`block-${id}`}>

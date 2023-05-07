@@ -401,6 +401,42 @@
   color: var(--color-gray);
 }
 
+.duper-toggle {
+  @apply relative;
+  margin: var(--basic-margin) 0;
+
+  .duper-toggle_head {
+    @apply relative flex items-center gap-2;
+    line-height: 1;
+    text-align: left;
+  }
+
+  .duper-toggle_arrow {
+    @extend .transition-basic;
+    width: 1.5rem;
+    font-size: 1.5rem;
+    font-weight: medium;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .duper-toggle_content {
+    @extend .transition-basic;
+    @apply relative max-h-0 overflow-hidden;
+    padding-left: calc(1.5rem + 8px);
+  }
+
+  &.duper-toggle-open {
+    .duper-toggle_arrow {
+      transform: rotate(90deg);
+    }
+
+    .duper-toggle_content {
+      @apply max-h-[100vh] overflow-y-auto;
+    }
+  }
+}
+
 // COLORING
 
 .duper-gray {
